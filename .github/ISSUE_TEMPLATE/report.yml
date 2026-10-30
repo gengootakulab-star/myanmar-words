@@ -1,0 +1,36 @@
+name: 間違いの報告
+description: 発音・意味・分解などの間違いを教えてください
+title: "[間違い] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ご協力ありがとうございます。分かる範囲で書いてください。
+  - type: input
+    id: word
+    attributes:
+      label: 単語
+      description: 間違いがあった単語(ミャンマー文字)
+      placeholder: ကျောင်းသား
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: どの部分が違いますか
+      options:
+        - 発音記号(IPA)
+        - 日本語の意味
+        - 構成要素の分解
+        - 文字・声調の説明
+        - 表示・動作の不具合
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 内容
+      description: どこが違うか、正しいと思う内容(出典があれば)を教えてください
+    validations:
+      required: true
