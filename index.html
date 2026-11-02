@@ -62,7 +62,7 @@ button{font-size:15px;padding:10px 16px;border:0;border-radius:10px;background:v
 <div class="ex my" id="ex"></div>
 <p class="hint">色のついたブロックや構成要素をタップすると詳しい説明が出ます。</p>
 <div id="out"></div>
-<p class="warn">辞書データ: Wiktionary(kaikki.org / wiktextract 経由、CC BY-SA・GFDL)。意味は英語のまま表示される語があります。日本語の意味は、よく使う約250語のみで、他は英語表示です。発音記号(IPA)の音節ごとの表示は規則による目安で、(?) は未対応の組み合わせです。<br>このページでは、閲覧数をCookieなしで集計しています(GoatCounter)。<br>間違いを見つけたら <a id="rp" href="https://github.com/gengootakulab-star/myanmar-words/issues/new?template=report.yml" target="_blank" rel="noopener" style="color:var(--ac)">GitHubで報告する</a>(GitHubアカウントが必要です)。</p>
+<p class="warn">辞書データ: Wiktionary(kaikki.org / wiktextract 経由、CC BY-SA・GFDL)。意味は英語のまま表示される語があります。日本語の意味は、よく使う約250語のみで、他は英語表示です。発音記号(IPA)の音節ごとの表示は規則による目安で、(?) は未対応の組み合わせです。<br>このページでは、閲覧数をCookieなしで集計しています(GoatCounter)。<br>間違いを見つけたら <a id="rp" href="https://github.com/gengootakulab-star/myanmar-words/issues/new?template=report.yml" target="_blank" rel="noopener" style="color:var(--ac)">GitHubで報告する</a>(GitHubアカウントが必要です)。<br>GitHubを使わない方は <a id="rf" href="https://docs.google.com/forms/d/e/1FAIpQLScPkiaUyqVWIROYV46vrNjukSjTbSkjNL-nu2frOm8UpZNkjQ/viewform?usp=pp_url&entry.71590650=%E3%83%9F%E3%83%A3%E3%83%B3%E3%83%9E%E3%83%BC%E8%AA%9E%20%E5%8D%98%E8%AA%9E%E5%88%86%E8%A7%A3" target="_blank" rel="noopener" style="color:var(--ac)">フォームで報告する</a>。</p>
 </main>
 <div id="bd"></div>
 <div id="sh"><div class="ss" id="s1"></div><div class="tt my" id="s2"></div><div class="pp ipa" id="s3"></div><div class="bb" id="s4"></div><button id="x">閉じる</button></div>
@@ -186,8 +186,9 @@ if(m.length>1&&m.every(x=>short(x[0])||x[1]))h+=`<div class="sum my">${m.map(x=>
 h+=`</div><div class="card"><h2>音節ごとの文字分解</h2>`+sy.map(s=>`<div class="syl"><span class="sh" data-i="${sylInfo(s)}"><span class="my" style="font-size:20px">${s}</span> <span class="ipa">/${ipa(s)}/</span></span><div class="chars my">${roles(s)}</div><div class="tone">${tone(s)}</div></div>`).join('')+
 `<div class="legend" style="margin-top:8px"><span class="c">子音</span><span class="m">介子音</span><span class="v">母音</span><span class="f">末子音</span><span class="t">声調</span><span class="s">重ね</span><span class="a">記号</span></div></div>`;
 return h}
+const RF="https://docs.google.com/forms/d/e/1FAIpQLScPkiaUyqVWIROYV46vrNjukSjTbSkjNL-nu2frOm8UpZNkjQ/viewform?usp=pp_url&entry.71590650=%E3%83%9F%E3%83%A3%E3%83%B3%E3%83%9E%E3%83%BC%E8%AA%9E%20%E5%8D%98%E8%AA%9E%E5%88%86%E8%A7%A3";
 const RP="https://github.com/gengootakulab-star/myanmar-words/issues/new?template=report.yml";
-function run(){run0();const t=($("q").value.split(/\s+/)[0]||"").replace(/[^\u1000-\u109F]/g,"");$("rp").href=RP+(t?"&word="+encodeURIComponent(t):"")}
+function run(){run0();const t=($("q").value.split(/\s+/)[0]||"").replace(/[^\u1000-\u109F]/g,"");$("rp").href=RP+(t?"&word="+encodeURIComponent(t):"");$("rf").href=RF+(t?"&entry.767953325="+encodeURIComponent(t):"")}
 function run0(){INFO=[];const toks=document.getElementById('q').value.split(/\s+/).map(t=>t.replace(/[^\u1000-\u109F]/g,'')).filter(Boolean);
 document.getElementById('out').innerHTML=toks.length?toks.map(analyze).join(''):'<div class="card">ミャンマー文字で単語を入力してください。</div>'}
 const $=id=>document.getElementById(id);
